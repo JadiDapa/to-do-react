@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import style from "../css/todo.module.css";
 import { useState } from "react";
 
@@ -20,7 +21,7 @@ function ToDoForm({ addTodo }) {
         value={value}
       />
       <button type="submit" className={style.TodoBtn}>
-        Add Task
+        Add
       </button>
     </form>
   );

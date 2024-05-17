@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 
 uuidv4();
 
-function App() {
+function ToDoWrapper() {
   const [todos, setTodos] = useState([]);
 
   function addTodo(todo) {
@@ -52,26 +52,24 @@ function App() {
   }
 
   return (
-    <div className={style.TodoList}>
-      <div className={style.TodoWrapper}>
-        <h1>To Do React</h1>
-        <ToDoForm addTodo={addTodo} />
-        {todos.map((todo, index) =>
-          todo.isEditing ? (
-            <ToDoEdit key={index} editTodo={editTask} task={todo} />
-          ) : (
-            <ToDoItem
-              task={todo}
-              key={index}
-              toggleComplete={toggleComplete}
-              deleteTodo={deleteTodo}
-              editTodo={editTodo}
-            />
-          )
-        )}
-      </div>
+    <div className={style.TodoWrapper}>
+      <h1>Get Things Done!</h1>
+      <ToDoForm addTodo={addTodo} />
+      {todos.map((todo, index) =>
+        todo.isEditing ? (
+          <ToDoEdit key={index} editTodo={editTask} task={todo} />
+        ) : (
+          <ToDoItem
+            task={todo}
+            key={index}
+            toggleComplete={toggleComplete}
+            deleteTodo={deleteTodo}
+            editTodo={editTodo}
+          />
+        )
+      )}
     </div>
   );
 }
 
-export default App;
+export default ToDoWrapper;
